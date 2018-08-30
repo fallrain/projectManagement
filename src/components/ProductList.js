@@ -5,25 +5,25 @@ import {Table, Popconfirm, Button} from 'antd';
 const ProductList = ({onDelete, products}) => {
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name"
+      title: 'Name',
+      dataIndex: 'name',
     },
     {
-      title: "Action",
+      title: 'Actions',
       render: (text, record) => {
         return (
-          <Popconfirm title="删除吗？" onConfirm={() => onDelete(record.id)}>
+          <Popconfirm title="删除吗?" onConfirm={() => onDelete(record.id)}>
             <Button>删除</Button>
           </Popconfirm>
         );
-      }
+      },
     }
   ];
   return (
-    <Table>
+    <Table
       dataSource={products}
       columns={columns}
-    </Table>
+    />
   );
 };
 
@@ -31,4 +31,5 @@ ProductList.propTypes = {
   onDelete: PropTypes.func.isRequired,
   products: PropTypes.array.isRequired,
 };
+
 export default ProductList;
